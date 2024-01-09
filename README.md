@@ -9,7 +9,7 @@ Why fix anything, when we can post-process!
 ## Usage
 
 ```bash 
-npx fix-bad-declaration-output ./declarations
+npx fix-bad-declaration-output './declarations/**/*.d.ts'
 ```
 
 
