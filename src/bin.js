@@ -1,17 +1,14 @@
-import assert from "node:assert";
+#!/usr/bin/env node
+import assert from 'node:assert';
 
-import { fixEmberReferences } from "./fixes/ember.js";
-import { fixExtensions } from "./fixes/glint.js";
+import { fixEmberReferences } from './fixes/ember.js';
+import { fixExtensions } from './fixes/glint.js';
+import { fixFile, getFiles } from './utils.js';
 
-import { getFiles, fixFile } from "./utils.js";
-
-const [_program, _script, ...args] = process.argv;
+const [, , ...args] = process.argv;
 const [pattern] = args;
 
-assert(
-  typeof pattern === "string",
-  "Please pass a glob pattern to `fix-bad-declaration-output`",
-);
+assert(typeof pattern === 'string', 'Please pass a glob pattern to `fix-bad-declaration-output`');
 
 for (let filePath of await getFiles(pattern)) {
   await fixFile(filePath, [

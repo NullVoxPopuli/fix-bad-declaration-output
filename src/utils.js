@@ -1,7 +1,7 @@
-import assert from "node:assert";
+import assert from 'node:assert';
 
-import fse from "fs-extra";
-import { globby } from "globby";
+import fse from 'fs-extra';
+import { globby } from 'globby';
 
 /**
  * @param {string} contents

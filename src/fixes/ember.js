@@ -1,8 +1,8 @@
-import jscodeshift from "jscodeshift";
+import jscodeshift from 'jscodeshift';
 
-const j = jscodeshift.withParser("ts");
+const j = jscodeshift.withParser('ts');
 
-const defaultFind = "ember";
+const defaultFind = 'ember';
 
 /**
  * @param {string} contents
