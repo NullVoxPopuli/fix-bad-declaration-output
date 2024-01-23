@@ -4,27 +4,26 @@
   "type": "module",
   "bin": "src/bin.js",
   "module": "./src/index.js",
-  "types": "./declarations/index.d.ts",
   "exports": {
     ".": {
-      "types": "./declarations/index.d.ts",
-      "default": "./src/index.js"
+      "default": "./src/index.js",
+      "types": "./declarations/index.d.ts"
     }
   },
   "scripts": {
-    "prepare": "pnpm build",
-    "prepack": "pnpm build",
-    "build": "tsc --declaration --declarationDir ./declarations --emitDeclarationOnly",
     "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
     "lint:fix": "pnpm lint:js:fix && pnpm format:fix",
     "lint:package": "publint .",
-    "lint:published-types": "attw --pack --ignore-rules cjs-resolves-to-esm",
     "lint:js": "eslint . --cache",
     "lint:format": "prettier . --check",
     "format:fix": "prettier . --write",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "pnpm build",
+    "prepack": "pnpm build",
+    "lint:published-types": "attw --pack --ignore-rules cjs-resolves-to-esm",
+    "build": "tsc --declaration --declarationDir ./declarations --emitDeclarationOnly"
   },
   "keywords": [],
   "author": "NullVoxPopuli",
@@ -43,7 +42,6 @@
     "jscodeshift": "^0.15.1"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.13.6",
     "@nullvoxpopuli/eslint-configs": "^3.2.2",
     "@tsconfig/node21": "^21.0.1",
     "@tsconfig/strictest": "^2.0.2",
@@ -56,6 +54,13 @@
     "eslint": "^8.56.0",
     "prettier": "^3.2.4",
     "publint": "^0.2.7",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "release-plan": "^0.6.0",
+    "@arethetypeswrong/cli": "^0.13.6"
+  },
+  "types": "./declarations/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NullVoxPopuli/fix-bad-declaration-output.git"
   }
 }
