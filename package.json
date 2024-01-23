@@ -2,8 +2,8 @@
   "name": "fix-bad-declaration-output",
   "version": "1.0.0",
   "type": "module",
-  "main": "src/index.js",
   "bin": "src/bin.js",
+  "module": "./src/index.js",
   "exports": {
     ".": {
       "default": "./src/index.js"
@@ -12,6 +12,7 @@
   "scripts": {
     "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
     "lint:fix": "pnpm lint:js:fix && pnpm format:fix",
+    "lint:package": "publint .",
     "lint:js": "eslint . --cache",
     "lint:format": "prettier . --check",
     "format:fix": "prettier . --write",
@@ -23,7 +24,7 @@
   "author": "NullVoxPopuli",
   "license": "MIT",
   "files": [
-    "src"
+    "src/**"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
@@ -46,6 +47,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.56.0",
     "prettier": "^3.2.4",
+    "publint": "^0.2.7",
     "typescript": "^5.3.3"
   }
 }

@@ -8,9 +8,21 @@ Why fix anything, when we can post-process!
 
 ## Usage
 
+### CLI
+
 ```bash
 npx fix-bad-declaration-output './declarations/**/*.d.ts'
 ```
+
+### JS
+
+```js
+import { fixBadDeclarationOutput } from "fix-bad-declaration-output";
+
+await fixBadDeclarationOutput("./declarations/**/*.d.ts", ["TypeScript#56571", "Glint#628"]);
+```
+
+At least one fixer is required to be specified in the second argument.
 
 ## Current Fixes
 
