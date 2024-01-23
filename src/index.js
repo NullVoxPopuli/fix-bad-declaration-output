@@ -63,13 +63,16 @@ export async function fixBadDeclarationOutput(
      */
     let withOptions = (contents) => fixer(contents, fixOptions);
 
+    names.push(name);
     fixesToApply.push(withOptions);
   }
 
   let files = await getFiles(glob);
 
   if (options.log) {
-    console.info(`Applying fixes, ${names.join(', ')}, to ${files.length} files...`);
+    console.info(
+      `Applying fixes, ${names.join(', ')}, to ${files.length} files matching '${glob}' ...`
+    );
   }
 
   for (let filePath of files) {
