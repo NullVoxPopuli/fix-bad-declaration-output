@@ -4,15 +4,21 @@
   "type": "module",
   "bin": "src/bin.js",
   "module": "./src/index.js",
+  "types": "./declarations/index.d.ts",
   "exports": {
     ".": {
+      "types": "./declarations/index.d.ts",
       "default": "./src/index.js"
     }
   },
   "scripts": {
+    "prepare": "pnpm build",
+    "prepack": "pnpm build",
+    "build": "tsc --declaration --declarationDir ./declarations --emitDeclarationOnly",
     "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
     "lint:fix": "pnpm lint:js:fix && pnpm format:fix",
     "lint:package": "publint .",
+    "lint:published-types": "attw --pack --ignore-rules cjs-resolves-to-esm",
     "lint:js": "eslint . --cache",
     "lint:format": "prettier . --check",
     "format:fix": "prettier . --write",
@@ -24,7 +30,8 @@
   "author": "NullVoxPopuli",
   "license": "MIT",
   "files": [
-    "src/**"
+    "src/**",
+    "declarations/**"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
@@ -36,6 +43,7 @@
     "jscodeshift": "^0.15.1"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.13.6",
     "@nullvoxpopuli/eslint-configs": "^3.2.2",
     "@tsconfig/node21": "^21.0.1",
     "@tsconfig/strictest": "^2.0.2",

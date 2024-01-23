@@ -3,5 +3,8 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
+    "rootDir": "./src",
+    "verbatimModuleSyntax": true,
   },
+  "include": ["src/**/*"],
 }
