@@ -55,12 +55,9 @@ For removing `/// <reference` entirely, you can configure:
 ```js
 import { fixBadDeclarationOutput } from "fix-bad-declaration-output";
 
-await fixBadDeclarationOutput(
-    "./declarations/**/*.d.ts",
-    [
-        ["TypeScript#56571", { types: 'all '}],
-    ]
-);
+await fixBadDeclarationOutput("./declarations/**/*.d.ts", [
+  ["TypeScript#56571", { types: "all " }],
+]);
 ```
 
 #### Removes lines starting with `/// <reference types="ember`
