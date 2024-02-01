@@ -1,5 +1,5 @@
 import { fixEmberReferences } from './ember.js';
-import { fixExtensions } from './glint.js';
+import * as glint from './glint.js';
 
 export const issues = {
   /**
@@ -9,5 +9,9 @@ export const issues = {
   /**
    * https://github.com/typed-ember/glint/issues/628
    */
-  'Glint#628': fixExtensions,
+  'Glint#628': glint.fixGTSExtensions,
+  /**
+   * https://github.com/typed-ember/glint/issues/697
+   */
+  'Glint#697': glint.fixOwnReferences,
 }; /** @type {const} */

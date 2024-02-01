@@ -35,7 +35,7 @@
     "lint:types": "tsc --noEmit",
     "prepack": "pnpm build",
     "prepare": "pnpm build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "dependencies": {
     "fs-extra": "^11.2.0",
@@ -47,17 +47,20 @@
     "@nullvoxpopuli/eslint-configs": "^3.2.2",
     "@tsconfig/node21": "^21.0.1",
     "@tsconfig/strictest": "^2.0.2",
+    "@types/common-tags": "^1.8.4",
     "@types/fs-extra": "^11.0.4",
     "@types/jscodeshift": "^0.11.11",
     "@types/node": "^20.11.15",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
+    "common-tags": "^1.8.2",
     "concurrently": "^8.2.2",
     "eslint": "^8.56.0",
     "prettier": "^3.2.4",
     "publint": "^0.2.7",
     "release-plan": "^0.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
   },
   "publishConfig": {
     "access": "public",

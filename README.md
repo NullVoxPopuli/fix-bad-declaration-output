@@ -26,7 +26,31 @@ At least one fixer is required to be specified in the second argument.
 
 ## Current Fixes
 
-### Removes lines starting with `/// <reference types="ember`
+### `/// <reference` removal
+
+See [microsoft/TypeScript#56571](https://github.com/microsoft/TypeScript/issues/56571#issuecomment-1830436576) for details.
+
+You can customize what's removed via:
+
+```js
+import { fixBadDeclarationOutput } from "fix-bad-declaration-output";
+
+await fixBadDeclarationOutput(
+    "./declarations/**/*.d.ts",
+    [
+        "TypeScript#56571", // default: type: 'ember'
+
+        // remove anything starting with node_modules.
+        // e.g.: /// <reference type="node_modules/...
+        ["TypeScript#56571", { types: 'node_modules '}],
+
+        "Glint#628"
+        "Glint#697"
+    ]
+);
+```
+
+#### Removes lines starting with `/// <reference types="ember`
 
 Starting with TS 5.3.x, iirc, ember-source's strategy for shipping public types causes `/// <reference` declarations to be added in libraries.
 
