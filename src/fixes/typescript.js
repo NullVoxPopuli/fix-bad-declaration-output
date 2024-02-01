@@ -6,11 +6,14 @@ const defaultFind = 'ember';
 
 /**
  * @param {string} contents
- * @param {{ types?: string }} [ options ]
+ * @param {{ types?: string | 'all' }} [ options ]
  */
 export function fixReferences(contents, options = {}) {
   const root = j(contents);
-  const find = `/ <reference types="${options.types || defaultFind}`;
+  const find =
+    options.types === 'all'
+      ? `/ <reference types=`
+      : `/ <reference types="${options.types || defaultFind}`;
 
   const fixed = root
     // @ts-expect-error
