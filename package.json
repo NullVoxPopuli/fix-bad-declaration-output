@@ -11,8 +11,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "default": "./src/index.js",
-      "types": "./declarations/index.d.ts"
+      "types": "./declarations/index.d.ts",
+      "default": "./src/index.js"
     }
   },
   "module": "./src/index.js",
