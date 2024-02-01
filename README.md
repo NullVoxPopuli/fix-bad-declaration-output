@@ -50,6 +50,16 @@ await fixBadDeclarationOutput(
 );
 ```
 
+For removing `/// <reference` entirely, you can configure:
+
+```js
+import { fixBadDeclarationOutput } from "fix-bad-declaration-output";
+
+await fixBadDeclarationOutput("./declarations/**/*.d.ts", [
+  ["TypeScript#56571", { types: "all " }],
+]);
+```
+
 #### Removes lines starting with `/// <reference types="ember`
 
 Starting with TS 5.3.x, iirc, ember-source's strategy for shipping public types causes `/// <reference` declarations to be added in libraries.

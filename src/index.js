@@ -4,13 +4,9 @@ import { issues } from './fixes/index.js';
 import { fixFile, getFiles } from './utils.js';
 
 /**
- * @typedef {typeof issues} IssuesMap
- * @typedef {keyof IssuesMap} Issue
- */
-
-/**
- * @typedef {[Key, IssuesMap[Key]]} FixerPair<Key>
- * @template {Issue} Key
+ * @typedef {import('./types.js').Issue} Issue
+ * @typedef {import('./types.js').FixerPair<any>} FixerPair
+ * @typedef {import('./types.js').IssueFunction} IssueFunction
  */
 
 /**
@@ -24,7 +20,7 @@ const DEFAULT_OPTIONS = {
 
 /**
  * @param {string} glob
- * @param {Issue[]} fixes
+ * @param {import('./types.js').Fixes} fixes
  */
 export async function fixBadDeclarationOutput(
   glob = DEFAULT_GLOB,
@@ -40,7 +36,7 @@ export async function fixBadDeclarationOutput(
     `List of fixes missing for 'fixBadDeclarationOutput'. Please specify the 'fixes' for the second arg.`
   );
 
-  /** @type {Array<IssuesMap[Issue]>} */
+  /** @type {IssueFunction[]} */
   let fixesToApply = [];
   /** @type {string[]} */
   let names = [];
@@ -52,8 +48,7 @@ export async function fixBadDeclarationOutput(
     let name = requested[0];
     let fixOptions = requested[1];
 
-    /** @type {IssuesMap[Issue]} */
-
+    /** @type {IssueFunction} */
     let fixer = issues[name];
 
     assert(fixer, `Could not find fixer with name ${name}.`);

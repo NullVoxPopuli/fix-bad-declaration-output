@@ -72,4 +72,16 @@ describe('fixReferences', () => {
       /// <reference types="node_modules/@glint/whatever2/module">"
       export const two = 2;`);
   });
+
+  test('can remove everything', () => {
+    let code = stripIndent`
+      /// <reference types="@glint/whatever/module">
+      /// <reference types="node_modules/@glint/whatever2/module">
+      /// <reference types="xyz">
+      export const two = 2;`;
+
+    let result = fixReferences(code, { types: 'all' });
+
+    expect(result).toBe(`export const two = 2;`);
+  });
 });
