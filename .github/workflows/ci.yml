@@ -19,3 +19,15 @@ jobs:
       - uses: wyvox/action-setup-pnpm@v3
       - name: Lint
         run: pnpm lint
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: wyvox/action-setup-pnpm@v3
+      - run: pnpm test
+
