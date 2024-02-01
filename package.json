@@ -1,40 +1,41 @@
 {
   "name": "fix-bad-declaration-output",
   "version": "1.0.3",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NullVoxPopuli/fix-bad-declaration-output.git"
+  },
+  "license": "MIT",
+  "author": "NullVoxPopuli",
   "type": "module",
-  "bin": "src/bin.js",
-  "module": "./src/index.js",
   "exports": {
     ".": {
       "default": "./src/index.js",
       "types": "./declarations/index.d.ts"
     }
   },
-  "scripts": {
-    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
-    "lint:fix": "pnpm lint:js:fix && pnpm format:fix",
-    "lint:package": "publint .",
-    "lint:js": "eslint . --cache",
-    "lint:format": "prettier . --check",
-    "format:fix": "prettier . --write",
-    "lint:js:fix": "eslint . --fix",
-    "lint:types": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "pnpm build",
-    "prepack": "pnpm build",
-    "lint:published-types": "attw --pack --ignore-rules cjs-resolves-to-esm",
-    "build": "tsc --declaration --declarationDir ./declarations --emitDeclarationOnly"
-  },
-  "keywords": [],
-  "author": "NullVoxPopuli",
-  "license": "MIT",
+  "module": "./src/index.js",
+  "types": "./declarations/index.d.ts",
+  "bin": "src/bin.js",
   "files": [
     "src/**",
     "declarations/**"
   ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org",
-    "access": "public"
+  "scripts": {
+    "build": "tsc --declaration --declarationDir ./declarations --emitDeclarationOnly",
+    "format:fix": "prettier . --write",
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "pnpm lint:js:fix && pnpm format:fix",
+    "lint:format": "prettier . --check",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:package": "publint .",
+    "lint:published-types": "attw --pack --ignore-rules cjs-resolves-to-esm",
+    "lint:types": "tsc --noEmit",
+    "prepack": "pnpm build",
+    "prepare": "pnpm build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "fs-extra": "^11.2.0",
@@ -42,25 +43,24 @@
     "jscodeshift": "^0.15.1"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.13.6",
     "@nullvoxpopuli/eslint-configs": "^3.2.2",
     "@tsconfig/node21": "^21.0.1",
     "@tsconfig/strictest": "^2.0.2",
     "@types/fs-extra": "^11.0.4",
     "@types/jscodeshift": "^0.11.11",
-    "@types/node": "^20.11.5",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
+    "@types/node": "^20.11.15",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.56.0",
     "prettier": "^3.2.4",
     "publint": "^0.2.7",
-    "typescript": "^5.3.3",
-    "release-plan": "^0.6.0",
-    "@arethetypeswrong/cli": "^0.13.6"
+    "release-plan": "^0.7.0",
+    "typescript": "^5.3.3"
   },
-  "types": "./declarations/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:NullVoxPopuli/fix-bad-declaration-output.git"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
