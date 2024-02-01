@@ -1,11 +1,13 @@
 import jscodeshift from 'jscodeshift';
 
+import { fixReferences } from './typescript.js';
+
 const j = jscodeshift.withParser('ts');
 
 /**
  * @param {string} contents
  */
-export function fixExtensions(contents) {
+export function fixGTSExtensions(contents) {
   const root = j(contents);
 
   const fixed = root
@@ -21,4 +23,13 @@ export function fixExtensions(contents) {
     .toSource();
 
   return fixed;
+}
+
+/**
+ * @param {string} contents
+ */
+export function fixOwnReferences(contents) {
+  return fixReferences(contents, {
+    types: 'node_modules/@glint',
+  });
 }

@@ -2,7 +2,7 @@
 import assert from 'node:assert';
 
 import { fixEmberReferences } from './fixes/ember.js';
-import { fixExtensions } from './fixes/glint.js';
+import * as glint from './fixes/glint.js';
 import { fixFile, getFiles } from './utils.js';
 
 const [, , ...args] = process.argv;
@@ -15,6 +15,8 @@ for (let filePath of await getFiles(pattern)) {
     // e.g.: /// <reference types="ember
     fixEmberReferences,
     // e.g.: import './foo.gts'
-    fixExtensions,
+    glint.fixGTSExtensions,
+    // e.g.: /// <reference type="node_modules/@glint
+    glint.fixOwnReferences,
   ]);
 }
