@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-02-03)
+
+fix-bad-declaration-output 1.1.1 (patch)
+
+#### :bug: Bug Fix
+* `fix-bad-declaration-output`
+  * [#6](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/6) Fix extensions on exports ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## Release (2024-02-01)
 
 fix-bad-declaration-output 1.1.0 (minor)

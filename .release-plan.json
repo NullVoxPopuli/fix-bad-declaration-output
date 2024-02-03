@@ -1,21 +1,17 @@
 {
   "solution": {
     "fix-bad-declaration-output": {
-      "impact": "minor",
-      "oldVersion": "1.0.3",
-      "newVersion": "1.1.0",
+      "impact": "patch",
+      "oldVersion": "1.1.0",
+      "newVersion": "1.1.1",
       "constraints": [
         {
-          "impact": "minor",
-          "reason": "Appears in changelog section :rocket: Enhancement"
-        },
-        {
           "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
+          "reason": "Appears in changelog section :bug: Bug Fix"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2024-02-01)\n\nfix-bad-declaration-output 1.1.0 (minor)\n\n#### :rocket: Enhancement\n* `fix-bad-declaration-output`\n  * [#4](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/4) Add option to remove all references ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#3](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/3) Account for https://github.com/typed-ember/glint/issues/697 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :house: Internal\n* `fix-bad-declaration-output`\n  * [#2](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/2) Setup release-plan -- Requires https://github.com/embroider-build/release-plan/pull/47 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+  "description": "## Release (2024-02-03)\n\nfix-bad-declaration-output 1.1.1 (patch)\n\n#### :bug: Bug Fix\n* `fix-bad-declaration-output`\n  * [#6](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/6) Fix extensions on exports ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
 }
