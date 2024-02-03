@@ -71,6 +71,11 @@ export async function fixBadDeclarationOutput(
   }
 
   for (let filePath of files) {
-    await fixFile(filePath, fixesToApply);
+    try {
+      await fixFile(filePath, fixesToApply);
+    } catch (e) {
+      console.error(`Errored while processing ${filePath}`);
+      throw e;
+    }
   }
 }

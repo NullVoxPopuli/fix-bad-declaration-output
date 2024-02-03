@@ -10,7 +10,7 @@ const j = jscodeshift.withParser('ts');
 export function fixGTSExtensions(contents) {
   const root = j(contents);
 
-  const fixed = root
+  root
     .find(j.ImportDeclaration)
     // @ts-expect-error
     .filter((path) => path.node.source.value.includes('.gts'))
@@ -19,10 +19,20 @@ export function fixGTSExtensions(contents) {
       //       moduleResolution = "bundler"
       // @ts-expect-error
       path.node.source.value = path.node.source.value.replace(/\.gts$/, '');
-    })
-    .toSource();
+    });
 
-  return fixed;
+  root
+    .find(j.ExportNamedDeclaration)
+    // @ts-expect-error
+    .filter((path) => path.node.source?.value?.includes('.gts'))
+    .forEach((path) => {
+      // TODO: this may only be appropriate when
+      //       moduleResolution = "bundler"
+      // @ts-expect-error
+      path.node.source.value = path.node.source.value.replace(/\.gts$/, '');
+    });
+
+  return root.toSource();
 }
 
 /**

@@ -15,6 +15,26 @@ describe('fixGTSExtensions', () => {
 
     expect(result).toBe(`import x from "./foo";`);
   });
+
+  test('works on default exports', () => {
+    let code = stripIndent`
+      export x from './foo.gts';
+    `;
+
+    let result = fixGTSExtensions(code);
+
+    expect(result).toBe(`export x from "./foo";`);
+  });
+
+  test('works on named exports', () => {
+    let code = stripIndent`
+      export { x } from './foo.gts';
+    `;
+
+    let result = fixGTSExtensions(code);
+
+    expect(result).toBe(`export { x } from "./foo";`);
+  });
 });
 
 describe('fixOwnReferences', () => {
