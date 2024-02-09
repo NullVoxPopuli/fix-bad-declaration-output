@@ -39,7 +39,10 @@ describe('fixBadDeclarationOutput', () => {
       /// <reference types="@glint/whatever/module">
       /// <reference types="node_modules/@glint/whatever2/module">
       /// <reference types="xyz">
+
       export declare const two: number;
+      export declare const three: string;
+      export declare const four: 'literal';
     `
     );
 
@@ -49,6 +52,10 @@ describe('fixBadDeclarationOutput', () => {
 
     let aContents = await read(a);
 
-    expect(aContents).toBe(`export declare const two: number;`);
+    expect(aContents).toMatchInlineSnapshot(`
+      "export declare const two: number;
+      export declare const three: string;
+      export declare const four: 'literal';"
+    `);
   });
 });
