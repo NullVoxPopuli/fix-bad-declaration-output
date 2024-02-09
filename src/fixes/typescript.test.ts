@@ -78,7 +78,6 @@ describe('fixReferences', () => {
   });
 
   describe('https://github.com/machty/ember-concurrency/issues/564', () => {
-
     test('declarations/helpers/cancel-all.d.ts', () => {
       let code = stripIndent`
         /// <reference types="ember-source/types/preview/@ember/component/-private/signature-utils" />
@@ -138,5 +137,5 @@ describe('fixReferences', () => {
         import { Environment } from './external/environment';"
       `);
     });
-  })
+  });
 });
