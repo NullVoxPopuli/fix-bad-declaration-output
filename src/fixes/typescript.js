@@ -11,14 +11,13 @@ export function fixReferences(contents, options = {}) {
   const removeAll = !options.types || options.types === 'all';
   const find = removeAll ? `/ <reference types=` : `/ <reference types="${options.types}`;
 
-  const fixed = root
+  root
     // @ts-expect-error
     .find(j.Comment)
     // @ts-expect-error
     .filter((path) => path.value.value.startsWith(find))
     // @ts-expect-error
-    .forEach((path) => j(path).remove())
-    .toSource();
+    .forEach((path) => j(path).remove());
 
-  return fixed;
+  return root.toSource();
 }
