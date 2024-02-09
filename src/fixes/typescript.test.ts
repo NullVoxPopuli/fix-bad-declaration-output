@@ -112,30 +112,31 @@ describe('fixReferences', () => {
         export default _default;"
       `);
     });
+
+    test('declarations/-private/ember-environment.d.ts', () => {
+      let code = stripIndent`
+        export declare class EmberEnvironment extends Environment {
+            assert(...args: any[]): void;
+            reportUncaughtRejection(error: any): void;
+            defer(): any;
+            globalDebuggingEnabled(): any;
+        }
+        export declare const EMBER_ENVIRONMENT: EmberEnvironment;
+        import { Environment } from './external/environment';
+      `;
+
+      let result = fixReferences(code);
+
+      expect(result).toMatchInlineSnapshot(`
+        "export declare class EmberEnvironment extends Environment {
+            assert(...args: any[]): void;
+            reportUncaughtRejection(error: any): void;
+            defer(): any;
+            globalDebuggingEnabled(): any;
+        }
+        export declare const EMBER_ENVIRONMENT: EmberEnvironment;
+        import { Environment } from './external/environment';"
+      `);
+    });
   })
-  test('declarations/-private/ember-environment.d.ts', () => {
-    let code = stripIndent`
-      export class EmberEnvironment extends Environment {
-          assert(...args: any[]): void;
-          reportUncaughtRejection(error: any): void;
-          defer(): any;
-          globalDebuggingEnabled(): any;
-      }
-      export const EMBER_ENVIRONMENT: EmberEnvironment;
-      import { Environment } from './external/environment';
-    `;
-
-    let result = fixReferences(code);
-
-    expect(result).toMatchInlineSnapshot(`
-      "export class EmberEnvironment extends Environment {
-          assert(...args: any[]): void;
-          reportUncaughtRejection(error: any): void;
-          defer(): any;
-          globalDebuggingEnabled(): any;
-      }
-      export const EMBER_ENVIRONMENT: EmberEnvironment;
-      import { Environment } from './external/environment';"
-    `);
-  });
 });
