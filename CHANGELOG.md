@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2024-02-09)
+
+fix-bad-declaration-output 1.1.2 (patch)
+
+#### :bug: Bug Fix
+* `fix-bad-declaration-output`
+  * [#8](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/8) Update fixer for TS#56571 to remove all References ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* `fix-bad-declaration-output`
+  * [#10](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/10) Add more tests ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## Release (2024-02-03)
 
 fix-bad-declaration-output 1.1.1 (patch)
