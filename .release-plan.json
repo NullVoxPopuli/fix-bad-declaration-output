@@ -2,16 +2,20 @@
   "solution": {
     "fix-bad-declaration-output": {
       "impact": "patch",
-      "oldVersion": "1.1.0",
-      "newVersion": "1.1.1",
+      "oldVersion": "1.1.1",
+      "newVersion": "1.1.2",
       "constraints": [
         {
           "impact": "patch",
           "reason": "Appears in changelog section :bug: Bug Fix"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2024-02-03)\n\nfix-bad-declaration-output 1.1.1 (patch)\n\n#### :bug: Bug Fix\n* `fix-bad-declaration-output`\n  * [#6](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/6) Fix extensions on exports ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+  "description": "## Release (2024-02-09)\n\nfix-bad-declaration-output 1.1.2 (patch)\n\n#### :bug: Bug Fix\n* `fix-bad-declaration-output`\n  * [#8](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/8) Update fixer for TS#56571 to remove all References ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :house: Internal\n* `fix-bad-declaration-output`\n  * [#10](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/10) Add more tests ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
 }
