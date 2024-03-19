@@ -35,6 +35,18 @@ describe('fixGTSExtensions', () => {
 
     expect(result).toBe(`export { x } from "./foo";`);
   });
+
+  test('works on inline imports', () => {
+    let code = stripIndent`
+      import("@ember/component/template-only").TOC<import("./foo.gts").FooSignature>;
+    `;
+
+    let result = fixGTSExtensions(code);
+
+    expect(result).toBe(
+      `import("@ember/component/template-only").TOC<import("./foo").FooSignature>;`
+    );
+  });
 });
 
 describe('fixOwnReferences', () => {
