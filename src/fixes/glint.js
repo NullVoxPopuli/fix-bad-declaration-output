@@ -32,6 +32,13 @@ export function fixGTSExtensions(contents) {
       path.node.source.value = path.node.source.value.replace(/\.gts$/, '');
     });
 
+  root
+    .find(j.TSImportType)
+    .filter((path) => path.node.argument.value.includes('.gts'))
+    .forEach((path) => {
+      path.node.argument.value = path.node.argument.value.replace(/\.gts$/, '');
+    });
+
   return root.toSource();
 }
 
