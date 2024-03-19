@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-03-19)
+
+fix-bad-declaration-output 1.1.3 (patch)
+
+#### :bug: Bug Fix
+* `fix-bad-declaration-output`
+  * [#11](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/11) Support inline imports ([@bertdeblock](https://github.com/bertdeblock))
+
+#### Committers: 1
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+
 ## Release (2024-02-09)
 
 fix-bad-declaration-output 1.1.2 (patch)
