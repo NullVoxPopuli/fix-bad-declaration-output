@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-03-20)
+
+fix-bad-declaration-output 1.1.4 (patch)
+
+#### :bug: Bug Fix
+* `fix-bad-declaration-output`
+  * [#13](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/13) Support export * for https://github.com/typed-ember/glint/issues/628 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## Release (2024-03-19)
 
 fix-bad-declaration-output 1.1.3 (patch)
