@@ -39,6 +39,18 @@ export function fixGTSExtensions(contents) {
       path.node.argument.value = path.node.argument.value.replace(/\.gts$/, '');
     });
 
+  root
+    .find(j.ExportAllDeclaration)
+    // TODO: can this really be a non-string?
+    // @ts-expect-error
+    .filter((path) => path.node.source?.value?.includes('.gts'))
+    .forEach((path) => {
+      // TODO: this may only be appropriate when
+      //       moduleResolution = "bundler"
+      // @ts-expect-error
+      path.node.source.value = path.node.source.value.replace(/\.gts$/, '');
+    });
+
   return root.toSource();
 }
 
