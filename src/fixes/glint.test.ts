@@ -36,6 +36,14 @@ describe('fixGTSExtensions', () => {
     expect(result).toBe(`export { x } from "./foo";`);
   });
 
+  test('works on export star', () => {
+    let code = `export * from './component.gts';`;
+
+    let result = fixGTSExtensions(code);
+
+    expect(result).toBe(`export * from "./component";`);
+  });
+
   test('works on inline imports', () => {
     let code = stripIndent`
       import("@ember/component/template-only").TOC<import("./foo.gts").FooSignature>;
