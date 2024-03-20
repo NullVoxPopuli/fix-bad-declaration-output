@@ -41,6 +41,8 @@ export function fixGTSExtensions(contents) {
 
   root
     .find(j.ExportAllDeclaration)
+    // TODO: can this really be a non-string?
+    // @ts-expect-error
     .filter((path) => path.node.source?.value?.includes('.gts'))
     .forEach((path) => {
       // TODO: this may only be appropriate when
