@@ -10,7 +10,7 @@ const [pattern] = args;
 
 assert(typeof pattern === 'string', 'Please pass a glob pattern to `fix-bad-declaration-output`');
 
-for (let filePath of await getFiles(pattern)) {
+for (const filePath of await getFiles(pattern)) {
   await fixFile(filePath, [
     // e.g.: /// <reference types="ember
     ts.fixReferences,
