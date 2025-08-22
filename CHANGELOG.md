@@ -1,5 +1,22 @@
 # Changelog
 
+## Release (2025-08-22)
+
+* fix-bad-declaration-output 1.1.5 (patch)
+
+#### :bug: Bug Fix
+* `fix-bad-declaration-output`
+  * [#21](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/21) Fix for all declaration typse, particularly, non-declare ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* `fix-bad-declaration-output`
+  * [#20](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/20) Update eslint ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#18](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/18) Update release-plan ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#17](https://github.com/NullVoxPopuli/fix-bad-declaration-output/pull/17) Bump pnpm ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## Release (2024-03-20)
 
 fix-bad-declaration-output 1.1.4 (patch)
