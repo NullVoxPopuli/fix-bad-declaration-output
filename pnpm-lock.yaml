@@ -22,8 +22,8 @@ importers:
         specifier: ^0.13.6
         version: 0.13.10
       '@nullvoxpopuli/eslint-configs':
-        specifier: ^5.3.3
-        version: 5.3.3(@babel/core@7.28.3)(@babel/eslint-parser@7.28.0(@babel/core@7.28.3)(eslint@9.33.0))(eslint@9.33.0)(prettier@3.6.2)(typescript@5.9.2)
+        specifier: ^5.3.4
+        version: 5.3.4(@babel/core@7.28.3)(@babel/eslint-parser@7.28.0(@babel/core@7.28.3)(eslint@9.33.0))(eslint@9.33.0)(prettier@3.6.2)(typescript@5.9.2)
       '@tsconfig/node21':
         specifier: ^21.0.1
         version: 21.0.4
@@ -583,8 +583,8 @@ packages:
     resolution: {integrity: sha512-/bNJhjc+o6qL+Dwz/bqfTQClkEO5nTQ1ZEcdCkAQjhkZMHIh22LPG7fNh1enJP1NKWDqYiiABnjFCY7E0zHYtQ==}
     engines: {node: ^18.17.0 || >=20.5.0}
 
-  '@nullvoxpopuli/eslint-configs@5.3.3':
-    resolution: {integrity: sha512-lS/AM+m6v+x26B16yF1rbLRS6hbX5HH3uxDNAtcuEXKFlIntLxEg9L9jMpLW0xrgZkPnywCVCWymLPUfMUG3Pw==}
+  '@nullvoxpopuli/eslint-configs@5.3.4':
+    resolution: {integrity: sha512-WKEyCtkZXJ7Uaqs0g0PdgoXiS0TRU4cV9qdysqPIAJ4A1YFmjtnvu2Ot8D3p40SYlSe08iHMBP08ez55P6GCdQ==}
     engines: {node: '>= v22.14.0'}
     peerDependencies:
       '@babel/core': ^7.22.10
@@ -3871,7 +3871,7 @@ snapshots:
     dependencies:
       which: 5.0.0
 
-  '@nullvoxpopuli/eslint-configs@5.3.3(@babel/core@7.28.3)(@babel/eslint-parser@7.28.0(@babel/core@7.28.3)(eslint@9.33.0))(eslint@9.33.0)(prettier@3.6.2)(typescript@5.9.2)':
+  '@nullvoxpopuli/eslint-configs@5.3.4(@babel/core@7.28.3)(@babel/eslint-parser@7.28.0(@babel/core@7.28.3)(eslint@9.33.0))(eslint@9.33.0)(prettier@3.6.2)(typescript@5.9.2)':
     dependencies:
       '@babel/core': 7.28.3
       '@eslint/js': 9.33.0

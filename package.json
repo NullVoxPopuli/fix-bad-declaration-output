@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.13.6",
-    "@nullvoxpopuli/eslint-configs": "^5.3.3",
+    "@nullvoxpopuli/eslint-configs": "^5.3.4",
     "@tsconfig/node21": "^21.0.1",
     "@tsconfig/strictest": "^2.0.2",
     "@types/common-tags": "^1.8.4",
