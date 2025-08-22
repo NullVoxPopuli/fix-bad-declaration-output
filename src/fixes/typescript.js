@@ -9,6 +9,8 @@ import jscodeshift from 'jscodeshift';
 function customTSParser() {
   /**
    * https://github.com/facebook/jscodeshift/blob/e877ed287dcb3ef3ee8b20c53ec8b477ab564438/parser/tsOptions.js
+   *
+   * @type {import('@babel/parser').ParserOptions}
    */
   const options = {
     sourceType: 'module',
@@ -27,6 +29,7 @@ function customTSParser() {
       'doExpressions',
       'dynamicImport',
       'exportDefaultFrom',
+      // @ts-ignore -- doesn't exist? why does jscodeshift have it?
       'exportExtensions',
       'exportNamespaceFrom',
       'functionBind',
