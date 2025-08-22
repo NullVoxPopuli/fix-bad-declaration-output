@@ -58,4 +58,35 @@ describe('fixBadDeclarationOutput', () => {
       export declare const four: 'literal';"
     `);
   });
+
+  test('it works with non-declare .d.ts', async () => {
+    const tmp = await mkdirp();
+
+    const a = path.join(tmp, 'a.d.ts');
+
+    await fs.writeFile(
+      a,
+      stripIndent`
+      /// <reference types="@glint/whatever/module">
+      /// <reference types="node_modules/@glint/whatever2/module">
+      /// <reference types="xyz">
+
+      export const two: number;
+      export const three: string;
+      export const four: 'literal';
+    `
+    );
+
+    await fixBadDeclarationOutput(`${tmp}/**/*.d.ts`, [['TypeScript#56571', { types: 'all' }]], {
+      log: true,
+    });
+
+    const aContents = await read(a);
+
+    expect(aContents).toMatchInlineSnapshot(`
+      "export const two: number;
+      export const three: string;
+      export const four: 'literal';"
+    `);
+  });
 });
