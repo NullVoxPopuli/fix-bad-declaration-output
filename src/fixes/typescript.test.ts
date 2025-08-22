@@ -7,58 +7,58 @@ const expect = hardAssert.soft;
 
 describe('fixReferences', () => {
   test('defaults: match everything', () => {
-    let code = stripIndent`
+    const code = stripIndent`
       /// <reference types="ember-source/whatever/module">
       /// <reference types="everything">
       /// <reference types="another">
       export const two = 2;`;
 
-    let result = fixReferences(code);
+    const result = fixReferences(code);
 
     expect(result).toBe(`export const two = 2;`);
   });
 
   test('defaults: match multiple ember-source', () => {
-    let code = stripIndent`
+    const code = stripIndent`
       /// <reference types="ember-source/whatever/module">
       /// <reference types="ember-source/whatever1/module">
       /// <reference types="ember-source/whatever2/module">
       export const two = 2;`;
 
-    let result = fixReferences(code);
+    const result = fixReferences(code);
 
     expect(result).toBe(`export const two = 2;`);
   });
 
   test('custom: works', () => {
-    let code = stripIndent`
+    const code = stripIndent`
       /// <reference types="@glint/whatever/module">
       export const two = 2;`;
 
-    let result = fixReferences(code, { types: '@glint' });
+    const result = fixReferences(code, { types: '@glint' });
 
     expect(result).toBe(`export const two = 2;`);
   });
 
   test('custom: removes multiple', () => {
-    let code = stripIndent`
+    const code = stripIndent`
       /// <reference types="@glint/whatever/module">
       /// <reference types="@glint/whatever2/module">
       /// <reference types="@glint/whatever5/module">
       export const two = 2;`;
 
-    let result = fixReferences(code, { types: '@glint' });
+    const result = fixReferences(code, { types: '@glint' });
 
     expect(result).toBe(`export const two = 2;`);
   });
 
   test('custom: does not remove more than what is specified', () => {
-    let code = stripIndent`
+    const code = stripIndent`
       /// <reference types="@glint/whatever/module"
       /// <reference types="node_modules/@glint/whatever2/module">
       export const two = 2;`;
 
-    let result = fixReferences(code, { types: '@glint' });
+    const result = fixReferences(code, { types: '@glint' });
 
     expect(result).toBe(stripIndent`
       /// <reference types="node_modules/@glint/whatever2/module">
@@ -66,20 +66,20 @@ describe('fixReferences', () => {
   });
 
   test('can remove everything', () => {
-    let code = stripIndent`
+    const code = stripIndent`
       /// <reference types="@glint/whatever/module">
       /// <reference types="node_modules/@glint/whatever2/module">
       /// <reference types="xyz">
       export const two = 2;`;
 
-    let result = fixReferences(code, { types: 'all' });
+    const result = fixReferences(code, { types: 'all' });
 
     expect(result).toBe(`export const two = 2;`);
   });
 
   describe('https://github.com/machty/ember-concurrency/issues/564', () => {
     test('declarations/helpers/cancel-all.d.ts', () => {
-      let code = stripIndent`
+      const code = stripIndent`
         /// <reference types="ember-source/types/preview/@ember/component/-private/signature-utils" />
         /// <reference types="ember-source/types/preview/@ember/component/helper" />
         import type { Task } from '../index';
@@ -95,7 +95,7 @@ describe('fixReferences', () => {
         export default _default;
       `;
 
-      let result = fixReferences(code);
+      const result = fixReferences(code);
 
       expect(result).toMatchInlineSnapshot(`
         "import type { Task } from '../index';
@@ -113,7 +113,7 @@ describe('fixReferences', () => {
     });
 
     test('declarations/-private/ember-environment.d.ts', () => {
-      let code = stripIndent`
+      const code = stripIndent`
         export declare class EmberEnvironment extends Environment {
             assert(...args: any[]): void;
             reportUncaughtRejection(error: any): void;
@@ -124,7 +124,7 @@ describe('fixReferences', () => {
         import { Environment } from './external/environment';
       `;
 
-      let result = fixReferences(code);
+      const result = fixReferences(code);
 
       expect(result).toMatchInlineSnapshot(`
         "export declare class EmberEnvironment extends Environment {

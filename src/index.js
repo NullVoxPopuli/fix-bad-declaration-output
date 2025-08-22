@@ -37,32 +37,32 @@ export async function fixBadDeclarationOutput(
   );
 
   /** @type {IssueFunction[]} */
-  let fixesToApply = [];
+  const fixesToApply = [];
   /** @type {string[]} */
-  let names = [];
+  const names = [];
 
-  for (let requestedFix of fixes) {
-    let requested = Array.isArray(requestedFix) ? requestedFix : [requestedFix, {}];
+  for (const requestedFix of fixes) {
+    const requested = Array.isArray(requestedFix) ? requestedFix : [requestedFix, {}];
 
     /** @type {Issue} */
-    let name = requested[0];
-    let fixOptions = requested[1];
+    const name = requested[0];
+    const fixOptions = requested[1];
 
     /** @type {IssueFunction} */
-    let fixer = issues[name];
+    const fixer = issues[name];
 
     assert(fixer, `Could not find fixer with name ${name}.`);
 
     /**
      * @param {string} contents
      */
-    let withOptions = (contents) => fixer(contents, fixOptions);
+    const withOptions = (contents) => fixer(contents, fixOptions);
 
     names.push(name);
     fixesToApply.push(withOptions);
   }
 
-  let files = await getFiles(glob);
+  const files = await getFiles(glob);
 
   if (options.log) {
     console.info(
@@ -70,7 +70,7 @@ export async function fixBadDeclarationOutput(
     );
   }
 
-  for (let filePath of files) {
+  for (const filePath of files) {
     try {
       await fixFile(filePath, fixesToApply);
     } catch (e) {

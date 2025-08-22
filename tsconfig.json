@@ -6,5 +6,6 @@
     "rootDir": "./src",
     "verbatimModuleSyntax": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["declarations", "node_modules"]
 }

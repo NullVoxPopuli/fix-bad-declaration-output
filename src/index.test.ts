@@ -22,16 +22,16 @@ async function mkdirp() {
 }
 
 async function read(filePath: string) {
-  let buffer = await fs.readFile(filePath);
+  const buffer = await fs.readFile(filePath);
 
   return buffer.toString();
 }
 
 describe('fixBadDeclarationOutput', () => {
   test('it works', async () => {
-    let tmp = await mkdirp();
+    const tmp = await mkdirp();
 
-    let a = path.join(tmp, 'a.d.ts');
+    const a = path.join(tmp, 'a.d.ts');
 
     await fs.writeFile(
       a,
@@ -50,7 +50,7 @@ describe('fixBadDeclarationOutput', () => {
       log: true,
     });
 
-    let aContents = await read(a);
+    const aContents = await read(a);
 
     expect(aContents).toMatchInlineSnapshot(`
       "export declare const two: number;

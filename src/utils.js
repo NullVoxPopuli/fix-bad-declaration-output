@@ -8,7 +8,7 @@ import { globby } from 'globby';
  * @param {Array<(contents: string) => string | Promise<string>>} fixers
  */
 export async function applyAll(contents, fixers) {
-  for (let fixer of fixers) {
+  for (const fixer of fixers) {
     contents = await fixer(contents);
   }
 
@@ -31,9 +31,9 @@ export async function getFiles(pattern) {
  * @param {Array<(contents: string) => string | Promise<string>>} fixers
  */
 export async function fixFile(filePath, fixers) {
-  let buffer = await fse.readFile(filePath);
-  let contents = buffer.toString();
-  let fixed = await applyAll(contents, fixers);
+  const buffer = await fse.readFile(filePath);
+  const contents = buffer.toString();
+  const fixed = await applyAll(contents, fixers);
 
   await fse.writeFile(filePath, fixed);
 }
